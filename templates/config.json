@@ -1,0 +1,14 @@
+{
+    "params":{
+        "blog_name" : "Coding Bubble",
+        "subheading" : "A blog loved by coder",
+        "title": "Coding Bubble",
+        "tw_url" : "https://twitter.com/CodingBubble",
+        "fb_url": "https://facebook.com/CodingBubble",
+        "git_url": "https://github.com/Coding_Bubble",
+        "gmail_username": "yourmail@gmail.com",
+        "gmail_pass": "yourpass"  ,
+        "admin_mail": "nadeemkhan2211@gmail.com"
+        
+    }
+}

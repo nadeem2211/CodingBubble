@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{url_for('static', filename = 'img/home-bg.jpg')}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Dashboard</h1>
+            <span class="subheading">manage your posts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <a href="/newpost"><button class="btn btn-primary float-center" >Add New Post</button> </a>
+  <a href="/logout"><button class="btn btn-primary float-center" >Logout</button> </a>
+
+  
+
+  <!-- Main Content -->
+ <table class="table table-striped table-hover" action="/dashboard",method="post">
+        <thead>
+          <tr>
+            <th scope="col">Sno.</th>
+            <th scope="col">Title</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for post in post %}
+            {% set edit_link = "/edit/"+ (post.id | string()) %}
+            {% set del_link = "/del/"+  (post.id | string()) %}
+          <tr>
+            <th scope="row">{{post.id}}</th>
+            <td >{{post.title}}</td>
+            <td > <a href="{{ edit_link }}"><button class="btn btn-primary float-center" >Edit</button></a></td>
+            <td > <a href="{{ del_link }}"><button class="btn btn-primary float-center" >Delete</button> </a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+  </table>
+
+  {% endblock %}

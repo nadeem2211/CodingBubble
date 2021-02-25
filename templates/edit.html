@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{url_for('static', filename = 'img/home-bg.jpg')}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Dashboard</h1>
+            <span class="subheading">manage your posts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+ <hr>
+
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+  {% set edit_link = "/edit/"+  (post.id | string()) %}
+  <form name="postForm" id="postForm" action = "{{edit_link}}" method ="post"  novalidate>
+    <div class="control-group">
+      <div class="form-group floating-label-form-group controls">
+        <label>Title</label>
+        <input type="input" class="form-control" id="title" name="title" value = "{{post.title}}">
+        <p class="help-block text-danger"></p>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="form-group floating-label-form-group controls">
+        <label>Slug</label>
+        <input type="input" class="form-control" id="slug" name="slug" value = "{{post.slug}}">
+        <p class="help-block text-danger"></p>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="form-group col-xs-12 floating-label-form-group controls">
+        <label>Content</label>
+        <input type="text" class="form-control" id="content" name="content" value = "{{post.content}}">
+        <p class="help-block text-danger"></p>
+      </div>
+    </div>
+    <div class="control-group">
+        <div class="form-group floating-label-form-group controls">
+          <label>ImageURL</label>
+          <input type="input" class="form-control" id="imgurl" name="imgurl" value = "{{post.img_url}}">
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+    <br>
+    <div id="success"></div>
+    <button type="submit" class="btn btn-primary" id="sendPostButton">Send</button>
+  </form>
+
+</div>
+</div>
+</div>
+
+  {% endblock %}
